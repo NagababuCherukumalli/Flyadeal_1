@@ -38,9 +38,9 @@ public class flyAdeal extends FlyAdealCacheFlow  {
     public static void FlightDetails2(WebDriver driver, Database PnrDetails) throws Exception {
         String date;
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25)); // Set the maximum wait time to 60 seconds
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15)); // Set the maximum wait time to 60 seconds
 		boolean isPageLoaded = false;
-		int maxAttempts = 4;
+		int maxAttempts = 2;
 		int attempt = 1;
 
 		while (!isPageLoaded && attempt <= maxAttempts) {
@@ -51,8 +51,9 @@ public class flyAdeal extends FlyAdealCacheFlow  {
 		   
 
 		        // Refresh the page
+                        driver.manage().deleteAllCookies();
 		        driver.get(flyAdealApiUrl);
-		        Thread.sleep(4000);
+		        Thread.sleep(5000);
 		        System.out.println("Cookies deleted. Page refreshed.");
 		    }
 
